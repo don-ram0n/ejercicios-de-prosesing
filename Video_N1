@@ -1,0 +1,7 @@
+void setup() {
+  size(400, 400);
+  background(255);
+
+  // Línea diagonal
+  line(0, 0, 200, 200);
+}
