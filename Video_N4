@@ -1,0 +1,137 @@
+Ejercicio 1
+int x = 200;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(x, 200, 50, 50);
+}
+
+void keyPressed() {
+  if (key == 'd') {
+    x += 10;
+  }
+  if (key == 'a') {
+    x -= 10;
+  }
+}
+
+Ejercicio 2
+    int x = 200;
+int y = 200;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(x, y, 50, 50);
+}
+
+void keyPressed() {
+  if (keyCode == RIGHT) x += 10;
+  if (keyCode == LEFT) x -= 10;
+  if (keyCode == UP) y -= 10;
+  if (keyCode == DOWN) y += 10;
+}
+
+Ejercicio 3
+  int x = 200;
+int velocidad = 0;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(x, 200, 50, 50);
+
+  x += velocidad;
+}
+
+void keyPressed() {
+  if (key == 'd') velocidad = 3;
+  if (key == 'a') velocidad = -3;
+}
+
+void keyReleased() {
+  velocidad = 0;
+}
+
+Ejercicio 4
+  int x = 200;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(x, 200, 50, 50);
+}
+
+void keyPressed() {
+  if (key == 'd' && x < width) {
+    x += 10;
+  }
+  if (key == 'a' && x > 0) {
+    x -= 10;
+  }
+}
+
+Ejercicio 5
+  int x = 200;
+int y = 200;
+int velX = 0;
+int velY = 0;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(x, y, 50, 50);
+
+  x += velX;
+  y += velY;
+}
+
+void keyPressed() {
+  if (keyCode == RIGHT) velX = 3;
+  if (keyCode == LEFT) velX = -3;
+  if (keyCode == UP) velY = -3;
+  if (keyCode == DOWN) velY = 3;
+}
+
+void keyReleased() {
+  velX = 0;
+  velY = 0;
+}
+
+Ejercicio 6
+  int x = 200;
+int y = 200;
+int velX = 3;
+int velY = 3;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+
+  ellipse(x, y, 50, 50);
+
+  x += velX;
+  y += velY;
+
+  if (x > width || x < 0) velX *= -1;
+  if (y > height || y < 0) velY *= -1;
+}
