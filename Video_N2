@@ -1,0 +1,129 @@
+Ejercicio 1
+void setup() {
+  size(500, 500);
+  background(250, 0, 100);
+}
+
+void draw() {
+  stroke(0, 255, 0);
+  line(mouseX, mouseY, 200, 200);
+}
+
+ejercicio 2
+void setup() {
+  size(500, 500);
+}
+
+void draw() {
+  background(255);
+  stroke(0, 255, 0);
+  line(mouseX, mouseY, 200, 200);
+}
+
+ejercicio 3
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(170, 0, 80);
+
+  ellipse(random(width), random(height), 50, 50);
+  rect(random(width), random(height), 50, 50);
+}
+
+ejercicio 4
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(170, 0, 80);
+
+  ellipse(random(width), random(height), 50, 50);
+  rect(random(width), random(height), 50, 50);
+
+  frameRate(5);
+}
+
+ejercicio 5
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(170, 0, 80);
+
+  fill(random(255), random(255), random(255));
+  ellipse(random(width), random(height), 50, 50);
+
+  fill(random(255), random(255), random(255));
+  rect(random(width), random(height), 50, 50);
+
+  frameRate(5);
+}
+
+ejercicio 6
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+
+  fill(random(255), random(255), random(255));
+  ellipse(random(width), random(height), 50, 50);
+
+  frameRate(1);
+}
+
+ejercicio 7
+int r = 50;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(200, 200, r, r);
+}
+
+ejercicio 8
+int ancho = 40;
+int alto = 80;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(mouseX, mouseY, ancho, alto);
+}
+
+ejrcicio 9
+float tamaño = 20;
+boolean crecer = true;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+
+  ellipse(mouseX, mouseY, tamaño, tamaño);
+
+  if (tamaño >= 200) {
+    crecer = false;
+  } else if (tamaño <= 20) {
+    crecer = true;
+  }
+
+  if (crecer) {
+    tamaño += 3;
+  } else {
+    tamaño -= 3;
+  }
+}
