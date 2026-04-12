@@ -1,7 +1,73 @@
+Ejercicio 1
 void setup() {
   size(400, 400);
   background(255);
 
   // Línea diagonal
   line(0, 0, 200, 200);
+}
+
+Ejercicio 2
+void setup() {
+  size(600, 300);
+}
+
+ejercicio 3
+void setup() {
+  size(400, 400);
+  background(150); // gris
+}
+
+ejercicio 4 
+void setup() {
+  size(400, 400);
+  background(255);
+
+  rect(50, 50, 100, 100);     // para el cuadrado
+  ellipse(250, 100, 100, 100); // para el círculo
+}
+
+ejercicio 5
+void setup() {
+  size(400, 400);
+  background(255);
+
+  fill(255, 0, 0);
+  rect(50, 50, 100, 100);
+
+  fill(0, 255, 0);
+  ellipse(250, 100, 100, 100);
+}
+
+ejercicio 6
+void setup() {
+  size(400, 400);
+  background(200);
+
+  fill(255, 0, 0);
+  rect(50, 50, 100, 100);
+
+  fill(0, 0, 255);
+  ellipse(200, 200, 100, 100);
+
+  fill(0, 255, 0);
+  triangle(300, 300, 250, 350, 350, 350);
+}
+
+ejercicio 7
+void setup() {
+  size(400, 400);
+  background(255);
+
+  // una Cara
+  fill(255, 220, 180);
+  ellipse(200, 200, 200, 200);
+
+  // unos Ojos
+  fill(0);
+  ellipse(160, 170, 20, 20);
+  ellipse(240, 170, 20, 20);
+
+  // una boca
+  line(160, 250, 240, 250);
 }
