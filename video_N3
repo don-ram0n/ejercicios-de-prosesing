@@ -1,0 +1,157 @@
+Ejercicio 1
+int x = 0;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+  ellipse(x, 200, 50, 50);
+  x = x + 2;
+}
+
+Ejercicio 2
+int x = 0;
+int velocidad = 3;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+
+  ellipse(x, 200, 50, 50);
+
+  x += velocidad;
+
+  if (x > width || x < 0) {
+    velocidad = -velocidad;
+  }
+}
+
+Ejercicio 3
+int y = 0;
+int velocidad = 3;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+
+  ellipse(200, y, 50, 50);
+
+  y += velocidad;
+
+  if (y > height || y < 0) {
+    velocidad = -velocidad;
+  }
+}
+
+Ejercicio 4
+    int x = 0;
+int y = 0;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+
+  ellipse(x, y, 50, 50);
+
+  x += 3;
+  y += 3;
+}
+
+
+Ejercicio 5
+  int x = 100;
+int y = 100;
+int velX = 3;
+int velY = 3;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  background(255);
+
+  ellipse(x, y, 50, 50);
+
+  x += velX;
+  y += velY;
+
+  if (x > width || x < 0) {
+    velX = -velX;
+  }
+
+  if (y > height || y < 0) {
+    velY = -velY;
+  }
+}
+
+Ejercicio 6
+int x1 = 0;
+int y2 = 0;
+int x3 = 100;
+int y3 = 100;
+
+int vel1 = 3;
+int vel2 = 2;
+int vel3 = 2;
+
+boolean ida1 = true;
+boolean ida2 = true;
+boolean ida3 = true;
+
+void setup() {
+  size(600, 400);
+}
+
+void draw() {
+  background(255);
+
+  // Círculo rojo (horizontal)
+  fill(255, 0, 0);
+  ellipse(x1, 100, 40, 40);
+
+  if (ida1) {
+    x1 += vel1;
+    if (x1 > width) ida1 = false;
+  } else {
+    x1 -= vel1;
+    if (x1 < 0) ida1 = true;
+  }
+
+  // se hace un Rectángulo (vertical)
+  fill(150, 75, 0);
+  rect(300, y2, 40, 40);
+
+  if (ida2) {
+    y2 += vel2;
+    if (y2 > height) ida2 = false;
+  } else {
+    y2 -= vel2;
+    if (y2 < 0) ida2 = true;
+  }
+
+  // se hace un Círculo diagonal
+  fill(0, 255, 0);
+  ellipse(x3, y3, 40, 40);
+
+  if (ida3) {
+    x3 += vel3;
+    y3 += vel3;
+    if (x3 > width || y3 > height) ida3 = false;
+  } else {
+    x3 -= vel3;
+    y3 -= vel3;
+    if (x3 < 0 || y3 < 0) ida3 = true;
+  }
+}    
