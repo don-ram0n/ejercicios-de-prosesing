@@ -1,1 +1,17 @@
+void setup (){
+size (800, 600);
+background (225);
+}
 
+void draw (){
+ if (mousePressed)
+    gatonormal();
+ else
+    gatocontento();
+    
+void estampa (float x, float y, float w, float h){
+  fill (255);
+  rect (x, y, 50, 50);
+  fill (255, 0, 0);
+  circle (x +25, y+25, 25);
+}
