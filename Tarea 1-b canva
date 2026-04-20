@@ -1,0 +1,34 @@
+void setup() {
+  size(600, 400);
+}
+
+void draw() {
+  background(240);
+
+  // unas Variables de referencia
+  float centroX = width / 2;
+  float centroY = height / 2;
+
+  float margenX = width * 0.1;
+  float margenY = height * 0.1;
+
+  // el Cuadrado central
+  fill(200, 100, 100);
+  rect(centroX - width*0.1, centroY - height*0.1, width*0.2, height*0.2);
+
+  // los Círculos en esquinas (adaptables)
+  dibujarCirculo(margenX, margenY);
+  dibujarCirculo(width - margenX, margenY);
+  dibujarCirculo(margenX, height - margenY);
+  dibujarCirculo(width - margenX, height - margenY);
+
+  // las Líneas cruzadas
+  stroke(0);
+  line(0, 0, width, height);
+  line(width, 0, 0, height);
+}
+
+void dibujarCirculo(float x, float y) {
+  fill(100, 150, 255);
+  ellipse(x, y, width*0.1, width*0.1);
+}
