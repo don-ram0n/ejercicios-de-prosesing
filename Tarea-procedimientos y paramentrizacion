@@ -1,0 +1,33 @@
+void setup() {
+  size(600, 400);
+}
+
+void draw() {
+  background(240);
+}
+
+// Evento de click
+void mousePressed() {
+  // Llamamos a la función en la posición del mouse
+  dibujarComposicion(mouseX, mouseY, width*0.2, height*0.2);
+}
+
+// PROCEDIMIENTO
+void dibujarComposicion(float posicionX, float posicionY, float ancho, float alto) {
+
+  // Cuadrado central (relativo)
+  fill(200, 100, 100);
+  rect(posicionX - ancho/2, posicionY - alto/2, ancho, alto);
+
+  //los Círculos en esquinas (relativos al tamaño)
+  fill(100, 150, 255);
+  ellipse(posicionX - ancho/2, posicionY - alto/2, ancho*0.3, alto*0.3);
+  ellipse(posicionX + ancho/2, posicionY - alto/2, ancho*0.3, alto*0.3);
+  ellipse(posicionX - ancho/2, posicionY + alto/2, ancho*0.3, alto*0.3);
+  ellipse(posicionX + ancho/2, posicionY + alto/2, ancho*0.3, alto*0.3);
+
+  // las Líneas cruzadas
+  stroke(0);
+  line(posicionX - ancho/2, posicionY - alto/2, posicionX + ancho/2, posicionY + alto/2);
+  line(posicionX + ancho/2, posicionY - alto/2, posicionX - ancho/2, posicionY + alto/2);
+}
