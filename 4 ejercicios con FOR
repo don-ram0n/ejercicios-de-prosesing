@@ -1,0 +1,104 @@
+Tablero de ajedrez:
+void setup() {
+  size(480, 480);
+  noLoop(); // se dibuja una sola vez
+}
+
+void draw() {
+  background(255);
+
+  int tamañoCasilla = width / 8;
+
+  for (int fila = 0; fila < 8; fila++) {
+    for (int columna = 0; columna < 8; columna++) {
+
+      // Alternar colores
+      if ((fila + columna) % 2 == 0) {
+        fill(240);   // claro
+      } else {
+        fill(60);    // oscuro
+      }
+
+      rect(columna * tamañoCasilla,
+           fila * tamañoCasilla,
+           tamañoCasilla,
+           tamañoCasilla);
+    }
+  }
+}
+
+Lineas cruzadas:
+void setup() {
+  size(600, 400);
+  noLoop();
+}
+
+void draw() {
+  background(255);
+
+  int x = 100;
+  int y = 50;
+  int w = 400;
+  int h = 250;
+
+  noFill();
+  rect(x, y, w, h);
+
+  // Divisiones abajo
+  int partes = 4;
+
+  for (int i = 0; i <= partes; i++) {
+    int px = x + i * w / partes;
+
+    line(x, y, px, y + h);       // esquina sup izq
+    line(x + w, y, px, y + h);  // esquina sup der
+  }
+}
+
+Fila de Circulos:
+void setup() {
+  size(600, 400);
+  noLoop();
+}
+
+void draw() {
+  background(255);
+
+  noFill();
+  stroke(0);
+
+  int y = height / 2;
+  int x = 80;
+
+  for (int i = 1; i <= 6; i++) {
+    int tamaño = i * 30;
+    ellipse(x, y, tamaño, tamaño);
+    x += tamaño / 2;
+  }
+}
+
+Una Pared de Ladrillos:
+void setup() {
+  size(600, 400);
+  noLoop();
+}
+
+void draw() {
+  background(255);
+
+  int ladrilloW = 100;
+  int ladrilloH = 40;
+
+  for (int fila = 0; fila < 8; fila++) {
+
+    int offset = 0;
+
+    if (fila % 2 == 1) {
+      offset = ladrilloW / 2;
+    }
+
+    for (int x = -offset; x < width; x += ladrilloW) {
+      rect(x, fila * ladrilloH, ladrilloW, ladrilloH);
+    }
+  }
+}
