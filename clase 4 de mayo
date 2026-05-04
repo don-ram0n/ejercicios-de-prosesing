@@ -1,0 +1,24 @@
+int [] hlinea;
+
+void setup (){
+  size (600, 600);
+  hlinea = new int [width];
+for (int i = 0; i < width; i++){
+  hlinea [i] = height/2;
+}
+}
+
+void draw (){
+  for (int i = 0; i < height; i++){
+  line (i, hlinea [i], i, height);
+}
+actualizarArray();
+}
+
+void actualizarArray(){
+  if (mousePressed){
+   int x = constrain (mouseX, 0, width);
+   hlinea [X] = mouseY;
+   line (mouseX, mouseY, pmouseX, pmouseY);
+ }
+}  
