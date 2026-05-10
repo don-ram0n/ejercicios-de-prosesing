@@ -1,0 +1,49 @@
+int maxPuntos = 10;
+
+// Arrays para guardar posiciones
+float[] posicionesX = new float[maxPuntos];
+float[] posicionesY = new float[maxPuntos];
+
+// Índice circular
+int indice = 0;
+
+// Cantidad actual de puntos
+int cantidad = 0;
+
+void setup() {
+  size(800, 600);
+}
+
+void draw() {
+  background(255);
+
+  // Dibujar todos los círculos guardados
+  for (int i = 0; i < cantidad; i++) {
+
+    fill(100, 150, 255);
+    stroke(0);
+
+    ellipse(posicionesX[i], posicionesY[i], 40, 40);
+  }
+}
+
+// Se ejecuta cuando hacemos click
+void mousePressed() {
+
+  // Guardar posición actual del mouse
+  posicionesX[indice] = mouseX;
+  posicionesY[indice] = mouseY;
+
+  // Avanzar índice circular
+  indice++;
+
+  // Si llega al final, vuelve al inicio
+  if (indice >= maxPuntos) {
+    indice = 0;
+  }
+
+  // Aumentar cantidad hasta máximo 10
+  if (cantidad < maxPuntos) {
+    cantidad++;
+  }
+}
