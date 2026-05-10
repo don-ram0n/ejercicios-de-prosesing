@@ -1,0 +1,69 @@
+int columnas = 20;
+int filas = 15;
+
+float[][] distancias;
+
+float anchoCelda;
+float altoCelda;
+
+void setup() {
+  size(800, 600);
+
+  // Tamaño de cada celda
+  anchoCelda = width / float(columnas);
+  altoCelda = height / float(filas);
+
+  // Crear matriz bidimensional
+  distancias = new float[columnas][filas];
+}
+
+void draw() {
+  background(0);
+
+  calcularDistancias();
+  dibujarGrilla();
+}
+
+// CALCULAR DISTANCIAS
+
+void calcularDistancias() {
+
+  for (int x = 0; x < columnas; x++) {
+    for (int y = 0; y < filas; y++) {
+
+      // Centro de cada celda
+      float centroX = x * anchoCelda + anchoCelda / 2;
+      float centroY = y * altoCelda + altoCelda / 2;
+
+      // Distancia al mouse
+      float d = dist(mouseX, mouseY, centroX, centroY);
+
+      // Guardar en matriz
+      distancias[x][y] = d;
+    }
+  }
+}
+
+// DIBUJAR GRILLA
+
+void dibujarGrilla() {
+
+  for (int x = 0; x < columnas; x++) {
+    for (int y = 0; y < filas; y++) {
+
+      // Obtener distancia guardada
+      float d = distancias[x][y];
+
+      // Convertir distancia a gris
+      float gris = map(d, 0, width, 255, 0);
+
+      fill(gris);
+      stroke(50);
+
+      rect(x * anchoCelda,
+           y * altoCelda,
+           anchoCelda,
+           altoCelda);
+    }
+  }
+}
