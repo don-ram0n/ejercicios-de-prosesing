@@ -1,0 +1,130 @@
+Ejercicio 1:
+int cantidad = 10;
+
+// Array de alturas
+float[] barras = new float[cantidad];
+
+// Ancho de cada barra
+float anchoBarra;
+
+void setup() {
+  size(800, 600);
+
+  anchoBarra = width / float(cantidad);
+
+  // Altura inicial
+  for (int i = 0; i < cantidad; i++) {
+    barras[i] = height / 2;
+  }
+}
+
+void draw() {
+  background(30);
+
+  // Dibujar barras
+  for (int i = 0; i < cantidad; i++) {
+
+    float x = i * anchoBarra;
+    float h = barras[i];
+
+    fill(100, 200, 255);
+    stroke(255);
+
+    rect(x,
+         height - h,
+         anchoBarra - 2,
+         h);
+  }
+
+  // Modificar barra con mouse
+  if (mousePressed) {
+
+    // Detectar qué barra toca el mouse
+    int indice = int(mouseX / anchoBarra);
+
+    if (indice >= 0 && indice < cantidad) {
+
+      // Convertir mouseY en altura
+      barras[indice] = height - mouseY;
+
+      barras[indice] = constrain(barras[indice], 10, height);
+    }
+  }
+}
+
+Ejercicio 2:
+  int filas = 8;
+  int columnas = 10;
+
+int tamaño = 60;
+
+// Array multidimensional
+boolean[][][] laberinto;
+
+void setup() {
+  size(600, 480);
+
+  // Crear estructura
+  laberinto = new boolean[filas][columnas][6];
+
+  // Generar valores aleatorios
+  for (int f = 0; f < filas; f++) {
+    for (int c = 0; c < columnas; c++) {
+
+      for (int p = 0; p < 6; p++) {
+
+        // true o false aleatorio
+        laberinto[f][c][p] = random(1) > 0.5;
+      }
+    }
+  }
+}
+
+void draw() {
+  background(255);
+
+  dibujarLaberinto();
+}
+
+void dibujarLaberinto() {
+
+  stroke(0);
+
+  for (int f = 0; f < filas; f++) {
+    for (int c = 0; c < columnas; c++) {
+
+      int x = c * tamaño;
+      int y = f * tamaño;
+
+      // 0 = arriba
+      if (laberinto[f][c][0]) {
+        line(x, y, x + tamaño, y);
+      }
+
+      // 1 = derecha
+      if (laberinto[f][c][1]) {
+        line(x + tamaño, y, x + tamaño, y + tamaño);
+      }
+
+      // 2 = abajo
+      if (laberinto[f][c][2]) {
+        line(x, y + tamaño, x + tamaño, y + tamaño);
+      }
+
+      // 3 = izquierda
+      if (laberinto[f][c][3]) {
+        line(x, y, x, y + tamaño);
+      }
+
+      // 4 = diagonal \
+      if (laberinto[f][c][4]) {
+        line(x, y, x + tamaño, y + tamaño);
+      }
+
+      // 5 = diagonal /
+      if (laberinto[f][c][5]) {
+        line(x + tamaño, y, x, y + tamaño);
+      }
+    }
+  }
+}
