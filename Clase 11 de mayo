@@ -1,0 +1,13 @@
+PVector pos, vel;
+
+void setup (){
+  size (800, 600);
+  pos = new PVector (width/2, height/2);
+  vel = new PVector (2, -1);
+}
+
+void draw (){
+  println (pos.x, pos.y);
+  pos.add (vel);
+  ellipse (pos.x, pos.y, 100, 100);
+}
