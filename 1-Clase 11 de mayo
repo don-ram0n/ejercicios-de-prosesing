@@ -1,5 +1,5 @@
 PVector pos, vel;
-float radio = 50;
+float radio = 20;
 
 void setup() {
   size(800, 600);
