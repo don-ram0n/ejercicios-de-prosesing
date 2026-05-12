@@ -1,3 +1,4 @@
+Pantalla tipo DVD:
 PVector pos, vel;
 float radio = 20;
 
@@ -18,6 +19,62 @@ void draw() {
 
   if (pos.y + radio > height || pos.y - radio < 0) {
     vel.y *= -1;
+  }
+
+  ellipse(pos.x, pos.y, radio * 2, radio * 2);
+}
+
+Ejercicio del pizarron 
+class Movil {
+  PVector pos;
+  PVector vel = new PVector (1, 2);
+  int R = 10;
+Movil (float x, float y){
+  pos = new PVector (x, y);
+}
+
+void mover (){
+  pos.add (vel);
+}
+
+void mostrar (){
+  ellipse (pos.x, pos.y, R, R);
+}
+
+void limitar (){
+
+}
+}
+
+
+Ejercicio donde el objeto sigue su transcurso cuando sale de la pantalla y aparece en otro lado:
+PVector pos, vel;
+float radio = 20;
+
+void setup() {
+  size(800, 600);
+  pos = new PVector(width/2, height/2);
+  vel = new PVector(2, -1);
+}
+
+void draw() {
+  background(255);
+  pos.add(vel);
+
+  if (pos.x - radio > width) {
+    pos.x = -radio;
+  }
+
+  if (pos.x + radio < 0) {
+    pos.x = width + radio;
+  }
+
+  if (pos.y - radio > height) {
+    pos.y = -radio;
+  }
+
+  if (pos.y + radio < 0) {
+    pos.y = height + radio;
   }
 
   ellipse(pos.x, pos.y, radio * 2, radio * 2);
